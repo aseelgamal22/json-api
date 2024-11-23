@@ -1,5 +1,7 @@
+const PORT_NUMBER= 'https://json-api-pi-beige.vercel.app';
+
 async function getcategories() {
-    const resp = await fetch("http://localhost:3000/categories")
+    const resp = await fetch(`${PORT_NUMBER}/categories`)
     const result = await resp.json();
     displaycategories(result);
 }
@@ -35,7 +37,7 @@ function displaycategories(x) {
 const bigparent = document.querySelector(".drow");
 async function getCards() { 
     // if (localStorage.getItem("cards") == null) {
-    let cards = await fetch("http://localhost:3000/cards")
+    let cards = await fetch(`${PORT_NUMBER}/cards`   )
     const mycards = await cards.json();
     // }
     localStorage.setItem("cards", JSON.stringify(mycards))
